@@ -1,34 +1,22 @@
-# 🔐 LoginPage — Full-Stack Authentication System
+# 🔐 LoginPage
 
-> **Secure Login & Registration System with JWT Authentication, Password Hashing, and MongoDB Integration**
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
-![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
-![JWT](https://img.shields.io/badge/JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square)
-
----
-
-## 📌 Overview
-
-**LoginPage** is a complete full-stack authentication system built from scratch using vanilla JavaScript on the frontend and Node.js + Express on the backend. It implements industry-standard security practices — password hashing with bcrypt, stateless authentication with JWT tokens, and persistent user storage with MongoDB via Mongoose.
-
-This project was built to demonstrate end-to-end auth flow knowledge, from the HTML/CSS/JS frontend all the way through API design, middleware, and database modeling.
+A clean, responsive **Login Page** with a full-stack architecture — HTML/CSS/JS frontend paired with a Node.js backend for handling authentication logic. Built as a foundational project to understand end-to-end user authentication flows.
 
 ---
 
 ## ✨ Features
 
-- 🔒 **Secure Password Hashing** — passwords stored using `bcryptjs` (never plain text)
-- 🎫 **JWT Authentication** — stateless token-based auth with expiry management
-- 📦 **MongoDB Integration** — user data persisted via Mongoose ODM
-- 🌐 **CORS Enabled** — cross-origin requests handled cleanly with `cors` middleware
-- 🔑 **Environment Variables** — sensitive config managed via `dotenv`
-- 📱 **Responsive Frontend** — clean login/register UI with HTML, CSS, and vanilla JS
-- 🚦 **API Routes** — structured RESTful routes for auth operations
-- 🛡️ **Input Validation** — server-side validation before DB operations
+- 🎨 **Responsive UI** — Clean login form that works across all screen sizes
+- 🔒 **Frontend Validation** — JavaScript-powered input validation before form submission
+- 🌐 **Backend Integration** — Node.js backend in `/backend` folder handles authentication requests
+- 💡 **Modular Structure** — Separate `index.html`, `style.css`, and `script.js` for clean separation of concerns
+- 🚫 **Error Handling** — User-friendly error messages for invalid credentials
 
 ---
 
@@ -36,146 +24,89 @@ This project was built to demonstrate end-to-end auth flow knowledge, from the H
 
 ```
 LoginPage/
-├── index.html          # Frontend login/register page
-├── style.css           # Styling for the auth UI
-├── script.js           # Frontend JS — form handling, fetch calls, token storage
-│
-└── backend/
-    ├── server.js       # Express app entry point
-    ├── package.json    # Dependencies & scripts
-    ├── .gitignore      # Node modules & env excluded
-    ├── models/         # Mongoose user schema/model
-    └── routes/         # Auth route handlers (login, register)
+├── index.html        # Login form UI
+├── style.css         # Styling and responsive layout
+├── script.js         # Frontend validation and form handling
+├── backend/          # Node.js backend for auth logic
+│   └── server.js     # Express server & route handlers
+└── .gitignore
 ```
 
 ---
 
-## 🛠️ Tech Stack
-
-### Frontend
-| Technology | Purpose |
-|------------|---------|
-| HTML5 | Structure — login & registration forms |
-| CSS3 | Styling — responsive layout, form design |
-| Vanilla JavaScript | Logic — form submission, fetch API calls, JWT token handling |
-
-### Backend
-| Package | Version | Purpose |
-|---------|---------|--------|
-| `express` | ^5.1.0 | Web server & routing framework |
-| `mongoose` | ^8.19.3 | MongoDB ODM — schema, model, queries |
-| `bcryptjs` | ^3.0.3 | Password hashing & comparison |
-| `jsonwebtoken` | ^9.0.2 | JWT generation & verification |
-| `cors` | ^2.8.5 | Cross-origin resource sharing |
-| `dotenv` | ^17.2.3 | Environment variable management |
-
----
-
-## ⚙️ Setup & Installation
+## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js v18+
-- MongoDB (local or MongoDB Atlas)
 
-### 1. Clone the repository
+- [Node.js](https://nodejs.org/) v16+
+- A modern web browser
+
+### 1. Clone the Repository
+
 ```bash
 git clone https://github.com/rangeshsha-Rookie/LoginPage.git
 cd LoginPage
 ```
 
-### 2. Install backend dependencies
+### 2. Run the Backend
+
 ```bash
 cd backend
 npm install
-```
-
-### 3. Configure environment variables
-Create a `.env` file in the `backend/` directory:
-```env
-PORT=5000
-MONGO_URI=mongodb://localhost:27017/loginpage
-JWT_SECRET=your_super_secret_key_here
-JWT_EXPIRES_IN=7d
-```
-
-### 4. Start the backend server
-```bash
 node server.js
-# Server running at http://localhost:5000
 ```
 
-### 5. Open the frontend
-Open `index.html` directly in your browser, or serve it with Live Server (VS Code extension).
+> Server starts at `http://localhost:3000` (or the configured port).
 
----
+### 3. Open the Frontend
 
-## 🔌 API Endpoints
+Open `index.html` directly in your browser, or serve it via a local server:
 
-| Method | Endpoint | Description | Auth Required |
-|--------|----------|-------------|---------------|
-| `POST` | `/api/auth/register` | Register a new user | ❌ |
-| `POST` | `/api/auth/login` | Login and receive JWT | ❌ |
-| `GET` | `/api/auth/profile` | Get authenticated user's profile | ✅ JWT |
-
-### Example: Register
-```json
-POST /api/auth/register
-{
-  "username": "rangesh",
-  "email": "rangesh@example.com",
-  "password": "securepassword123"
-}
-```
-
-### Example: Login Response
-```json
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-  "user": {
-    "id": "64abc...",
-    "username": "rangesh",
-    "email": "rangesh@example.com"
-  }
-}
+```bash
+# Using VS Code Live Server extension, or:
+npx serve .
 ```
 
 ---
 
-## 🔐 Security Practices
+## 🧠 How It Works
 
-- ✅ Passwords hashed with **bcrypt** (salt rounds: 10) — never stored in plain text
-- ✅ **JWT tokens** signed with a secret key — stateless, no session storage needed
-- ✅ Sensitive keys stored in **`.env`** — never committed to version control
-- ✅ **CORS** configured to control allowed origins
-- ✅ `node_modules/` excluded via `.gitignore`
+1. User enters credentials on the login form (`index.html`)
+2. `script.js` validates the input client-side (empty fields, email format, etc.)
+3. On valid submission, a `fetch()` / `XMLHttpRequest` sends the data to the backend
+4. The backend (`/backend/server.js`) verifies credentials and returns a success or error response
+5. The frontend displays the appropriate message to the user
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | HTML5, CSS3, Vanilla JavaScript |
+| Backend | Node.js, Express.js |
+| Validation | Client-side JS + Server-side checks |
 
 ---
 
 ## 📚 What I Learned
 
-Building this project helped solidify:
-- Full-stack request/response flow from browser form → API → database → response
-- How `bcryptjs` salt-and-hash works under the hood
-- JWT structure (header.payload.signature) and token verification middleware
-- Mongoose schema design and async CRUD operations
-- Express router architecture for modular API structure
-- Environment variable best practices for production-ready code
+- Structuring a full-stack project from scratch
+- Connecting a plain HTML/CSS/JS frontend to a Node.js backend
+- Handling form submission with `fetch()` and async/await
+- Client-side validation patterns before server communication
+- Basic Express.js routing and request/response handling
 
 ---
 
-## 👤 Author
+## 👨‍💻 Author
 
 **Rangesh Gupta**
-- 🎓 B.E. Computer Engineering (Data Science) — SLRTCE, Mumbai (2025–2029)
-- 🤖 Google Student Ambassador 2026
-- 💼 [LinkedIn](https://linkedin.com/in/rangesh-gupta) | [GitHub](https://github.com/rangeshsha-Rookie)
+- GitHub: [@rangeshsha-Rookie](https://github.com/rangeshsha-Rookie)
+- LinkedIn: [in/rangesh-gupta](https://linkedin.com/in/rangesh-gupta)
 
 ---
 
-## 📜 License
+## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
-
----
-
-*Clean auth. Secure by design. 🔐*
